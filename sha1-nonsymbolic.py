@@ -37,34 +37,36 @@ class FixedWidthUInt:
 
     def __add__(self: T, other: T) -> T:
         assert self.width == other.width, f"{self.width} != {other.width}"
-        return self.__class__(self.val + other.val)
+        return self.__class__(self.val + other.val, self.width)
 
     def __and__(self: T, other: T) -> T:
         assert self.width == other.width, f"{self.width} != {other.width}"
-        return self.__class__(self.val & other.val)
+        return self.__class__(self.val & other.val, self.width)
 
     def __or__(self: T, other: T) -> T:
         assert self.width == other.width, f"{self.width} != {other.width}"
-        return self.__class__(self.val | other.val)
+        return self.__class__(self.val | other.val, self.width)
 
     def __invert__(self: T) -> T:
-        return self.__class__(~self.val)
+        return self.__class__(~self.val, self.width)
 
     def __xor__(self: T, other: T) -> T:
         assert self.width == other.width, f"{self.width} != {other.width}"
-        return self.__class__(self.val ^ other.val)
+        return self.__class__(self.val ^ other.val, self.width)
 
     def __lshift__(self: T, other: T) -> T:
         assert self.width == other.width, f"{self.width} != {other.width}"
-        return self.__class__(self.val << other.val)
+        return self.__class__(self.val << other.val, self.width)
 
     def __rshift__(self: T, other: T) -> T:
         assert self.width == other.width, f"{self.width} != {other.width}"
-        return self.__class__(self.val >> other.val)
+        return self.__class__(self.val >> other.val, self.width)
 
     def rotate_left(self: T, other: T) -> T:
         assert self.width == other.width, f"{self.width} != {other.width}"
-        return (self << other) | (self >> self.__class__(self.width - other.val))
+        return (self << other) | (
+            self >> self.__class__(self.width - other.val, self.width)
+        )
 
 
 # seems not easily possible
@@ -250,9 +252,5 @@ class SHA1:
 if __name__ == "__main__":
     main()
 
-# TODO refactor pylint *py
-# TODO refactor mypy --strict *py
-# TODO refactor variable names
-# TODO refactor method names remove prefix
 
-# clear ; mypy --strict *py  ; pylint --disable=R0903,C0114,C0115,C0116,C0200 *py
+# clear ; mypy --strict *py  ; pylint --disable=R0903,C0114,C0115,C0116,C0200,C0103 *py
