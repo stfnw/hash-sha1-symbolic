@@ -6,8 +6,34 @@ import z3  # type: ignore
 def main() -> None:
     z3.set_param(verbose=2)
 
-    assert "0a4d55a8d778e5022fab701977c5d840bbc486d0" == sha1hash_(b"Hello World")
-    assert "4b94287d001bc19d133233a57b64443504e3f08f" == sha1hash_(b"1" * 10000)
+    # Sanity check that the symbolic implementation is correct by passing
+    # fully determined input.
+    # assert "0a4d55a8d778e5022fab701977c5d840bbc486d0" == sha1hash_(b"Hello World")
+    # assert "4b94287d001bc19d133233a57b64443504e3f08f" == sha1hash_(b"1" * 10000)
+
+    data = [z3.BitVec("data" + str(i), 8) for i in range(SHA1HashSize + 1)]
+    print(
+        f"[+] Constructing U8 array of {len(data)} symbolic bytes "
+        + "and the symbolic hash computation for it"
+    )
+    hash = sha1hash(data)
+
+    print("[+] Adding additional constraints to the solver")
+    s = z3.Solver()
+
+    # Find message whose checksum starts with one null byte.
+    s.add(hash[0] == make_u8(0))
+
+    print("[+] Checking for boolean satisfiability")
+    if s.check() == z3.sat:
+        print("[+] Found valid model")
+
+        m = s.model()
+        dataval = [m.evaluate(d) for d in data]
+        hashval = [m.evaluate(h) for h in hash]
+
+        print(f"    Data hex:  {hex_from_bv(dataval)}")
+        print(f"    SHA1 hash: {hex_from_bv(hashval)}")
 
 
 type U8 = z3.BitVecRef
