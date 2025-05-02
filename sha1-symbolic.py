@@ -14,7 +14,8 @@ def main() -> None:
     # Find message whose checksum starts with one null byte.
     # s.add(hash[0] == make_u8(0))
 
-    for i in range(SHA1HashSize):
+    # for i in range(SHA1HashSize):
+    for i in range(SHA1HashSize - 1):
 
         data = [z3.BitVec("data" + str(i), 8) for i in range(SHA1HashSize + 1)]
         print(
@@ -27,7 +28,14 @@ def main() -> None:
         s = z3.Solver()
 
         # Find message whose i-th hash-byte is null.
-        s.add(hash[i] == make_u8(0))
+        # s.add(hash[i] == make_u8(0))
+
+        # Find message whose i-th and (i+1)-th hash-byte is null.
+        # s.add(hash[i + 0] == make_u8(0))
+        # s.add(hash[i + 1] == make_u8(0))
+
+        # Find message whose i-th and (i+1)-th hash-byte have the same value.
+        s.add(hash[i + 0] == hash[i + 1])
 
         print("[+] Checking for boolean satisfiability")
         if s.check() == z3.sat:
