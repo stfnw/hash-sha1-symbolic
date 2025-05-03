@@ -186,3 +186,87 @@ Data hex:  32c4aed0412551bd18467bdd2e4367c6348e44c59f
 SHA1 hash: 9c56d799f81415248d9208f2386614dea8053030
                                                ||||
 ```
+
+Some hashes where the i-th hash-byte and its mirror have the same value:
+
+```
+Data hex:  a053c3c5d8d911018006c04116c1a303089fc32182
+SHA1 hash: 8255ffa85b6de41655168d8276df786564ab4182
+           ||                                    ||
+
+Data hex:  ff0a6f90c0e59a7fd3e30bdff206f4248639a560ab
+SHA1 hash: b408ebdec84a70e8709abcebbaf0a4d7147408be
+             ||                                ||
+
+Data hex:  f907420901d3db57b83d92844c2e80472a07153100
+SHA1 hash: c4f3e98cf4e3b2929d40d1fb3ae7e4ebafe963cc
+               ||                            ||
+
+Data hex:  2a064441a13384552040901c084e9429cc3f12822d
+SHA1 hash: a6df0099940aa0e3353e5412522659e4997b3ce8
+                 ||                        ||
+
+Data hex:  3c36ef812ba116453ca242e0c347c213ea3707d21d
+SHA1 hash: 484d0d69da32bc03606c3943312b87da016e3fb6
+                   ||                    ||
+
+Data hex:  2a81a759218729b9e8fcde4c208418c93845382f13
+SHA1 hash: 576c1a6df42b98d06a78ad5224492be11b681ab8
+                     ||                ||
+
+Data hex:  7c8964c9cf50366f8640156c0b43945d4595eac128
+SHA1 hash: 7e78a03bf1b40d64ecc00882380df549061343b1
+                       ||            ||
+
+Data hex:  38a1bb5d8dc428d5976b90956b26e8f80950f0907c
+SHA1 hash: 4d80e99e059b65d3f406ac7cd375bab6a167cbfc
+                         ||        ||
+
+Data hex:  f039670f611ab82d5ed4aeef0432c933d6df4a2f10
+SHA1 hash: 3e06ec0750e4729be78896e7f40b69d86f818ecb
+                           ||    ||
+
+Data hex:  c9463fc23bee2445247f1147228452ef1731810142
+SHA1 hash: 7eb5b0f306e18d2ed3eeeec23b206bda36d4c649
+                             ||||
+
+Data hex:  9847c5fcb5425ad732ee0405988096711d9a5433fa
+SHA1 hash: 971a9d20dc6e48ef5d9f9f0a3ebcf456a3f24bde
+                             ||||
+
+Data hex:  7047377e901820332c8be25f5800a1b80020214730
+SHA1 hash: 05486387ecfd446297942597772caeac4fe24175
+                           ||    ||
+
+Data hex:  745dfe195eac56823d50987dbc8353579840039a49
+SHA1 hash: 7c057acec1d0fe7db48447947db81d330c23a216
+                         ||        ||
+
+Data hex:  1d0af546fe0038b79b60ff625542aea8848f5c2f94
+SHA1 hash: 2fede3900c0c2235a5c0dad647221d4e48c2a547
+                       ||            ||
+
+Data hex:  91144015670159968f344be6c7e5532fa35693543a
+SHA1 hash: 1a5b623d13eff8319e4f191ab0d7ef7aaa6d656a
+                     ||                ||
+
+Data hex:  2039d945908e42913894486535a0007bb1084cab34
+SHA1 hash: aee950058b6ef86f34799a50edd5a78b65a77926
+                   ||                    ||
+
+Data hex:  e9874549e9537361e03e8f8b4f6e69f29f92b7ce08
+SHA1 hash: e628d4516e5f0206db444b92c6b7f8865154d4ea
+                 ||                        ||
+
+Data hex:  6d898331e8098b095c02c7e604c4abe2fa90044969
+SHA1 hash: 8872bda78d65ddff0099bec64b14a6501ebd8741
+               ||                            ||
+
+Data hex:  f855a289077fc6dd8421c71740c403e32404b06181
+SHA1 hash: 57724a12a6aa42ac7199d4230975a07af8367237
+             ||                                ||
+
+Data hex:  f86e602d04af79bf3cf15310d015e485124ab0e134
+SHA1 hash: 71d5764e2cb699e0f56267ab5432a5ab2d894671
+           ||                                    ||
+```
