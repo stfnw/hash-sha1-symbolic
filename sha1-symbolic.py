@@ -43,6 +43,10 @@ def main() -> None:
         # Find message where i-th input and hash byte have the same value.
         s.add(hash[i] == data[i])
 
+        # Find message where i-th and (i+1)-th input and hash byte have the same value.
+        # s.add(hash[i + 0] == data[i + 0])
+        # s.add(hash[i + 1] == data[i + 1])
+
         print("[+] Checking for boolean satisfiability")
         if s.check() == z3.sat:
             print("[+] Found valid model")
@@ -91,8 +95,8 @@ def bytes_from_bv(data: list[U8]) -> bytes:
     return bytes([z3.simplify(b).as_long() for b in data])
 
 
-def hex_from_bv(input: list[U8]) -> str:
-    bs = bytes_from_bv(input)
+def hex_from_bv(data: list[U8]) -> str:
+    bs = bytes_from_bv(data)
     return bytes.hex(bs)
 
 
